@@ -24,8 +24,7 @@ public class UserController {
 
     @PostMapping(path = "/inserir")
     public ResponseEntity inserir(@RequestBody User user){
-        User u = service.salvar(user);
-        return ResponseEntity.ok("Usuario Inserido");
+        return service.salvar(user);
     }
 
     @GetMapping(path = "/listar")
@@ -33,7 +32,7 @@ public class UserController {
         return service.listar();
     }
 
-    @GetMapping (path = "/buscarMatricula")
+    @GetMapping (path = "/buscarEmail")
     public User buscarNome(@PathVariable String nome){
         return service.buscarNome(nome);
     }

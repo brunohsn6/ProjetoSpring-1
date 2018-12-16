@@ -28,6 +28,8 @@ public class UserService {
         try {
             if (user.getNome() == null || user.getNome().isEmpty()) {
                 throw new NomeInvalidoException("Nome usuario enviado invalido");
+            }else if(!user.getEmail().contains("@")){
+                throw new NomeInvalidoException("Email invalido");
             }
             return ResponseEntity.ok(repository.save(user));
         } catch (NomeInvalidoException e) {
