@@ -30,10 +30,7 @@ public class UserService {
                 throw new UserException("Nome usuario enviado invalido");
             }else if(!user.getEmail().contains("@")){
                 throw new UserException("Email invalido");
-            }else if(repository.findByLogin(user.getLogin()) != null){
-                throw new UserException("Login já existe");
             }
-//            return ResponseEntity.ok(repository.save(user));
             repository.save(user);
             return ResponseEntity.ok("Usuario inserido com sucesso");
         } catch (UserException e) {
