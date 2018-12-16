@@ -24,21 +24,26 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         User u = new User();
         u.setNome("mariana");
         u.setEmail("quirino@gmail.com");
         u.setLogin("mari");
+        User u1 = new User();
+        u1.setNome("teste");
+        u1.setEmail("qu1irino@gmail.com");
+        u1.setLogin("mari2");
 
-        System.out.println(service.salvar(u));
-
-
-
-
+        System.out.println(service.salvar(u).getBody());
+        System.out.println(service.salvar(u1).getBody());
+        //
+//        User result = (User) service.salvar(u1).getBody();
+//        System.out.println(result.getNome());
 
         List<User> users = service.listar();
-        System.out.println("Nomes");
+        System.out.println("Nomes:");
         for (User user: users) {
-            System.out.println(user.getNome());
+            System.out.println(user.getLogin());
         }
 
     }
