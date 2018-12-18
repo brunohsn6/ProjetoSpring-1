@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Criado por Mariana
@@ -26,6 +27,10 @@ public class User {
 
     private Date dtNasc;
 
+    @Column(unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String senha;
 
 }
