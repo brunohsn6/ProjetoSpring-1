@@ -24,6 +24,8 @@ public class Tweet {
     @ManyToOne
     private User user;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private List<Tweet> comentario;
+
+
 }
