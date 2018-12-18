@@ -29,9 +29,7 @@ public class TweetService {
         return repository.findAll();
     }
 
-//    public Tweet buscar(User u) {
-//        Tweet tweet = new Tweet();
-//        u.setNome(nome);
-//        return repository.findByuser(nome);
-//    }
+    public Tweet feedUser(User u) {
+        return repository.findByUser(u);
+    }
 }

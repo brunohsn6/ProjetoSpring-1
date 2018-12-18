@@ -33,4 +33,7 @@ public class User {
     @Column(nullable = false)
     private String senha;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<User> seguindo;
+
 }

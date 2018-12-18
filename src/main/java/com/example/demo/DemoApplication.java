@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -32,22 +33,24 @@ public class DemoApplication implements CommandLineRunner {
         u.setEmail("quirino@gmail.com");
         u.setLogin("mari");
         u.setSenha("123");
-//        User u1 = new User();
-//        u1.setNome("teste");
-//        u1.setEmail("qu1irino@gmail.com");
-//        u1.setLogin("mari2");
+        User u1 = new User();
+        u1.setNome("teste");
+        u1.setEmail("qwe@gmail.com");
+        u1.setLogin("mari2");
+        u1.setSenha("123");
 
 
 
 //        userService.salvar(u);
         System.out.println(userService.salvar(u).getBody());
-//        System.out.println(userService.salvar(u1).getBody());
-        //
-//        User result = (User) userService.salvar(u1).getBody();
-//        System.out.println(result.getNome());
+        List<User> userList = new ArrayList<>();
+        userList.add(u);
+        u1.setSeguindo(userList);
+        System.out.println(userService.salvar(u1).getBody());
 
         Tweet tweet = new Tweet();
         tweet.setPost("Hello Word");
+        tweet.setUser(u);
         tweetService.salvar(tweet);
 
         List<User> users = userService.listar();
@@ -56,6 +59,7 @@ public class DemoApplication implements CommandLineRunner {
             System.out.println(user.getLogin());
         }
 
+        System.out.println(tweetService.feedUser(u).getPost());
     }
 }
 

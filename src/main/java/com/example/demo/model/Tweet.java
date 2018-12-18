@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Criado por Mariana
@@ -22,4 +23,7 @@ public class Tweet {
 
     @ManyToOne
     private User user;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Tweet> comentario;
 }

@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  **/
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
-//    Tweet findByUser(User user);
+    Tweet findByUser(User user);
 }
